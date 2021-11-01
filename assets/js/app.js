@@ -10,10 +10,16 @@ const app = new Vue({
         nextElement() {
             if (this.activeItem == this.items.length - 1) {
                 this.activeItem = 0
-                console.log(activeItem);
             } else {
                 this.activeItem = this.activeItem + 1
             }
+            let activeCounter = this.activeItem - 1
+            if (this.activeItem == 0) {
+                activeCounter = 4
+            }
+            const thumbElement = document.getElementsByClassName("thumb_image")
+            thumbElement[this.activeItem].id = "active_thumb"
+            thumbElement[activeCounter].removeAttribute("id")
         },
         prevElement() {
             if (this.activeItem == 0) {
@@ -21,6 +27,17 @@ const app = new Vue({
             } else {
                 this.activeItem = this.activeItem - 1
             }
+            let activeCounter = this.activeItem + 1
+            if (this.activeItem == 4) {
+                activeCounter = 0
+            }
+            const thumbElement = document.getElementsByClassName("thumb_image")
+            thumbElement[this.activeItem].id = "active_thumb"
+            thumbElement[activeCounter].removeAttribute("id")
         }
     }
 });
+
+const prevElement = document.getElementsByClassName("preview__item")
+prevElement[0].id = "active"
+setInterval(app.nextElement, 3000)

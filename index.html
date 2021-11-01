@@ -17,11 +17,11 @@
         <div class="container">
             <div class="preview">
                 <!-- img testo -->
-                <div v-for="(item, index) in items" class="preview__item active">
-                    <img :src="item" alt>
+                <div class="preview__item">
+                    <img :src="items[activeItem]" alt>
                     <div class="text">
-                        <h2>{{ titles[index] }}</h2>
-                        <p>{{ texts[index] }}</p>
+                        <h2>{{ titles[activeItem] }}</h2>
+                        <p>{{ texts[activeItem] }}</p>
                     </div>
                 </div>
             </div>
