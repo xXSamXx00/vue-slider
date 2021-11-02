@@ -35,9 +35,11 @@ const app = new Vue({
             thumbElement[this.activeItem].id = "active_thumb"
             thumbElement[activeCounter].removeAttribute("id")
         }
+    },
+    mounted() {
+        setInterval(this.nextElement, 3000)
     }
 });
 
 const prevElement = document.getElementsByClassName("preview__item")
 prevElement[0].id = "active"
-setInterval(app.nextElement, 3000)
